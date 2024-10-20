@@ -1,0 +1,36 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        x:Class="MusicCatalogAppUI.UI.Views.MainWindow"
+        SizeToContent="WidthAndHeight" Title="Music Catalog">
+
+    <!-- Основной StackPanel для всей компоновки -->
+    <StackPanel Margin="20">
+    
+        <!-- Горизонтальный StackPanel для выпадающего списка, строки поиска и кнопок -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+      
+            <!-- Выпадающий список для выбора типа поиска -->
+            <ComboBox Name="dropdownList" Width="200" Margin="0,0,10,0" SelectedIndex="0">
+                <ComboBoxItem Content="Артист" />
+                <ComboBoxItem Content="Альбом" />
+                <ComboBoxItem Content="Песня" />
+                <ComboBoxItem Content="Сборник" />
+            </ComboBox>
+
+            <!-- Поле для ввода текста поиска -->
+            <TextBox Name="searchBox" Width="200" Margin="0,0,10,0" Watermark="Введите текст..." />
+
+            <!-- Горизонтальный StackPanel для кнопок -->
+            <StackPanel Orientation="Horizontal" Spacing="10">
+                <Button Name="findButton" Content="Найти" Width="100" Click="OnSearchClick" />
+                <Button Name="showAllButton" Content="Показать все" Width="120" Click="OnShowAllClick" />
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Прокручиваемая область для результатов поиска -->
+        <ScrollViewer Height="300"> <!-- Ограничиваем высоту и добавляем прокрутку -->
+            <TextBlock Name="ResultsTextBlock" Text="Результаты поиска появятся здесь..." TextWrapping="Wrap" Margin="0,20,0,0" Width="600" />
+        </ScrollViewer>
+
+    </StackPanel>
+</Window>
